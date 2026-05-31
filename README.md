@@ -2,7 +2,6 @@
 Программа для работы с рецептами.Позволяет добавлять ингредиенты,масштабировать порции и составлять список покупок.
 ## Установка
 git clone https://github.com/karimistiy/HW2-TP.git
-
 cd HW2-TP
 pip install -r requirements.txt
 ## Использование
