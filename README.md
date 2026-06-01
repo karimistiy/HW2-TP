@@ -6,11 +6,10 @@ git clone https://github.com/karimistiy/HW2-TP.git
 cd HW2-TP
 pip install -r
 requirements.txt
-pytest
 ```
 ## Использование
 Запуск тестов:
-``bash
+```bash
 pytest
 ```
 ## Автор
