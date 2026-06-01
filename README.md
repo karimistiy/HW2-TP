@@ -4,7 +4,8 @@
 ```bash
 git clone https://github.com/karimistiy/HW2-TP.git
 cd HW2-TP
-pip install -r requirements.txt
+pip install -r
+requirements.txt
 pytest
 ```
 ## Использование
