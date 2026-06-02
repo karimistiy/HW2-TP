@@ -14,7 +14,7 @@ class Ingredient:
     def __str__(self):
         return f"{self.name}: {self.quantity} {self.unit}"
     def __repr__(self):
-        return f"Ingredient('{self.name}',{self.quantity},'{self.unit}')"
+        return f"Ingredient('{self.name}', {self.quantity}, '{self.unit}')"
     def __eq__(self, other):
         if not isinstance(other,Ingredient):
             return False
@@ -80,4 +80,4 @@ class DietaryRecipe(Recipe):
         scaled=super().scale(ratio)
         return DietaryRecipe(self.title,self.diet_type,scaled.ingredients)
     def __str__(self):
-        return f"[{self.diet_type}] " + super().__str__()
+        return f"[{self.diet_type}] {self.title}"
