@@ -148,3 +148,37 @@ def test_shopping_list_add_originals_unchanged():
     sl2=ShoppingList()
     sl1+sl2
     assert len(sl1.get_list())==1
+
+def test_dietary_recipe_init():
+    recipe=DietaryRecipe("Эчпочмак","диетическое")
+    assert recipe.title=="Эчпочмак"
+    assert recipe.diet_type=="диетическое"
+    assert recipe.ingredients==[]
+def test_dietary_recipe_str():
+    recipe=DietaryRecipe("Эчпочмак","диетическое")
+    assert str(recipe)=="[диетическое] Эчпочмак"
+def test_dietary_recipe_scale_returns_dietary():
+    recipe=DietaryRecipe("Эчпочмак","диетическое")
+    recipe.add_ingredient(Ingredient("Мука",500,"г"))
+    scaled=recipe.scale(2)
+    assert isinstance(scaled,DietaryRecipe)
+def test_dietary_recipe_scale_preserves_diet_type():
+    recipe=DietaryRecipe("Эчпочмак","диетическое")
+    recipe.add_ingredient(Ingredient("Мука",500,"г"))
+    scaled=recipe.scale(2)
+    assert scaled.diet_type=="диетическое"
+def test_dietary_recipe_scale_quantity():
+    recipe=DietaryRecipe("Эчпочмак","диетическое")
+    recipe.add_ingredient(Ingredient("Говядина",400,"г"))
+    scaled=recipe.scale(2)
+    assert scaled.ingredients[0].quantity==800.0
+def test_dietary_recipe_scale_original_unchanged():
+    recipe=DietaryRecipe("Эчпочмак","диетическое")
+    recipe.add_ingredient(Ingredient("Картофель",300,"г"))
+    recipe.scale(3)
+    assert recipe.ingredients[0].quantity==300.0
+def test_dietary_recipe_scale_returns_new_object():
+    recipe=DietaryRecipe("Эчпочмак","диетическое")
+    recipe.add_ingredient(Ingredient("Лук репчатый",150,"г"))
+    scaled=recipe.scale(2)
+    assert scaled is not recipe
