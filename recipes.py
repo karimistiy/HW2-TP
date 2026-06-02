@@ -81,3 +81,4 @@ class DietaryRecipe(Recipe):
         return DietaryRecipe(self.title,self.diet_type,scaled.ingredients)
     def __str__(self):
         return f"[{self.diet_type}] {self.title}"
+
